@@ -7,10 +7,9 @@ class SignupForm extends Component {
   state = {
     name: '',
     email: '',
+    typeOfUser: '',
     password: '',
-    passwordConf: '',
-    // activity: [],
-    // score: 0
+    passwordConf: ''
   };
 
   handleChange = (e) => {
@@ -32,7 +31,7 @@ class SignupForm extends Component {
   }
 
   isFormInvalid() {
-    return !(this.state.name && this.state.email && this.state.password === this.state.passwordConf);
+    return !(this.state.name && this.state.email && this.state.password === this.state.passwordConf && this.state.password.length > 7);
   }
 
   render() {
@@ -58,6 +57,17 @@ class SignupForm extends Component {
           <div className="form-group">
             <div className="col-sm-12">
               <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="col-sm-12">
+              <label htmlFor="select">I am:</label>
+              <select name="typeOfUser"  onChange={this.handleChange} >
+                <option></option>
+                <option value="far">A Farmer</option>
+                <option value="com">A Commuity Member</option>
+                <option value="val">A Volunteer</option>
+              </select>
             </div>
           </div>
           <div className="form-group">

@@ -1,7 +1,6 @@
 import tokenService from './tokenService';
 
 const BASE_URL = '/api/';
-//if it breaks this is why
 
 function signup(user) {
   return fetch(BASE_URL + 'signup', {
@@ -11,13 +10,9 @@ function signup(user) {
   })
   .then(res => {
     if (res.ok) return res.json();
-    // Probably a duplicate email
     throw new Error('Email already taken! test');
   })
-  // Parameter destructuring!
   .then(({token}) => tokenService.setToken(token));
-  // The above could have been written as
-  //.then((token) => token.token);
 }
 
 function getUser() {
@@ -35,7 +30,6 @@ function login(creds) {
     body: JSON.stringify(creds)
   })
   .then(res => {
-    // Valid login if we have a status of 2xx (res.ok)
     if (res.ok) return res.json();
     throw new Error('Bad Credentials!');
   })
