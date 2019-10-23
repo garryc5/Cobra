@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-// , Redirect 
 import { Route, Switch } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
-// import tokenService from '../../utils/tokenService';
 import NavBar from '../../Components/NavBar/NavBar'
-
+import ImA from '../ImA/ImA'
 
 class App extends Component {
   constructor() {
@@ -49,7 +47,11 @@ render() {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
-        
+            <Route exact path='/ImA' render={({ history }) => 
+            <ImA
+            user={this.state.user}
+            />
+            }/>
       </Switch>
     </div>
   );

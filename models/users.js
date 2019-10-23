@@ -8,7 +8,6 @@ const userSchema = new mongoose.Schema({
   email: {type: String, required: true, lowercase: true, unique: true},
   password: String,
   typeOfUser: {type: String,
-    required: true,
   enum: ['far','val','com']
   }
 }, {

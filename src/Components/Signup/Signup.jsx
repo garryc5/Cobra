@@ -7,7 +7,6 @@ class SignupForm extends Component {
   state = {
     name: '',
     email: '',
-    typeOfUser: '',
     password: '',
     passwordConf: ''
   };
@@ -24,7 +23,7 @@ class SignupForm extends Component {
     try {
       await userService.signup(this.state);
       this.props.handleSignupOrLogin();
-      this.props.history.push('/');
+      this.props.history.push('/ImA');
     } catch (err) {
       this.props.updateMessage(err.message);
     }
@@ -33,6 +32,7 @@ class SignupForm extends Component {
   isFormInvalid() {
     return !(this.state.name && this.state.email && this.state.password === this.state.passwordConf && this.state.password.length > 7);
   }
+
 
   render() {
     return (
@@ -59,20 +59,9 @@ class SignupForm extends Component {
               <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
             </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <label htmlFor="select">I am:</label>
-              <select name="typeOfUser"  onChange={this.handleChange} >
-                <option></option>
-                <option value="far">A Farmer</option>
-                <option value="com">A Commuity Member</option>
-                <option value="val">A Volunteer</option>
-              </select>
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12 text-center">
-              <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
+          <div>
+            <div>
+              <button  disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
               <Link to='/'>Cancel</Link>
             </div>
           </div>
