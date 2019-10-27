@@ -59,9 +59,9 @@ class SignupForm extends Component {
               <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
             </div>
           </div>
-          <div>
-            <div>
-              <button  disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
+          <div className="form-group">
+            <div className="col-sm-12 text-center">
+              <button disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
               <Link to='/'>Cancel</Link>
             </div>
           </div>

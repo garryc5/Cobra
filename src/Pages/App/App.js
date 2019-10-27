@@ -21,31 +21,32 @@ class App extends Component {
   }
 
   handleSignupOrLogin = () => {
-    this.setState({user: userService.getUser()});
+    this.setState({ user: userService.getUser() });
   }
 
-render() {
-  return (
-    <div>
-      <h1>Cobra</h1>
-      <Switch>
-        <Route exact path='/' render={() =>
-          <NavBar 
-            user={this.state.user}
-            handleLogout={this.handleLogout}
-          />
-        }/>
-        <Route exact path='/signup' render={({ history }) => 
+  render() {
+    return (
+      <div id="welcome-banner">
+        <h1>Cobra</h1>
+        <Switch>
+          <Route exact path='/' render={() =>
+            <NavBar
+              user={this.state.user}
+              handleLogout={this.handleLogout}
+            />
+          } />
+          <Route exact path='/signup' render={({ history }) =>
             <SignupPage
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
-          }/>
-          <Route exact path='/login' render={({ history }) => 
+          } />
+          <Route exact path='/login' render={({ history }) =>
             <LoginPage
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
+<<<<<<< HEAD
           }/>
             <Route exact path='/ImA' render={({ history }) => 
             <ImA
@@ -56,6 +57,14 @@ render() {
     </div>
   );
 }
+=======
+          } />
+
+        </Switch>
+      </div>
+    );
+  }
+>>>>>>> fix unstage
 }
 
 
