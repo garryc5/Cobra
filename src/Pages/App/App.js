@@ -46,25 +46,12 @@ class App extends Component {
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
-<<<<<<< HEAD
-          }/>
-            <Route exact path='/ImA' render={({ history }) => 
-            <ImA
-            user={this.state.user}
-            />
-            }/>
-      </Switch>
-    </div>
-  );
-}
-=======
           } />
 
         </Switch>
       </div>
     );
   }
->>>>>>> fix unstage
 }
 
 
