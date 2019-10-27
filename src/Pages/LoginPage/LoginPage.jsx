@@ -28,7 +28,7 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div>
+      <div class="form" id="log-in">
         <header>Log In</header>
         <form onSubmit={this.handleSubmit} >
           <div>
@@ -42,9 +42,9 @@ class LoginPage extends Component {
             </div>
           </div>
           <div>
-            <div>
-              <button>Log In</button>&nbsp;&nbsp;&nbsp;
-              <Link to='/'>Cancel</Link>
+            <div className="form-link-container">
+              <button className="link">Log In</button>&nbsp;&nbsp;&nbsp;
+              <Link className="link" to='/'>Cancel</Link>
             </div>
           </div>
         </form>
